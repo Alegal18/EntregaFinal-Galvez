@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import NavBar from "./component/NavBar";
+import ItemListContainer from "./component/ItemListContainer";
+import Footer from "./component/Footer";
+import ItemDetailContainer from "./component/ItemDetailContainer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function App() {
+
+
+function App() {  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <BrowserRouter>
+      <NavBar />
+
+      <Routes>
+        <Route path="/" element={<ItemListContainer />} />
+        <Route path="/itemList" element={<ItemListContainer />} />
+        <Route path="/producto/:idItem" element={<ItemDetailContainer />} />
+        <Route path="/categoria" element={<ItemDetailContainer />} />
+        <Route path="*" element={<hi><strong>Error 404, Pagina no encontrada</strong></hi>} />      
+
+      </Routes>
+      <Footer />
+      </BrowserRouter>
+    </>
+      
+   
   );
 }
 
