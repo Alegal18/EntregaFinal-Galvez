@@ -1,9 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 
 
-const Card = styled.div`    
+export const ContenedorCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    align-items: center;
+    margin: 0 auto ;
+    padding: 5rem;
+    gap: 5rem;
+            
+    @media (max-width: 768px) {
+      max-width: 80%;
+    }    
+
+`
+
+export const Card = styled.div`    
     background-color: #E5E7E9;
     border-radius: 5px;
     max-width: 100%;
@@ -19,28 +32,28 @@ const Card = styled.div`
     }   
 
 `
-const Span = styled.span`
+export const Span = styled.span`
     font-weight: 700;
     
 `
-const Imagen = styled.img`
+export const Imagen = styled.img`
   object-fit: cover;
   max-width: 100%;  
   width: 90%;
   height: 50%;
   margin: 15px auto 0 auto;
   display: block;
+  border-radius: 0.5rem;
   
 `;
 
-const Parrafo = styled.p`
+export const Parrafo = styled.p`
     margin-top: 10px;
     margin-left: 2rem;
 
         
 `
-
-const BotonLink = styled(Link)`
+export const Boton = styled.button`
     display: block;
     width: 90%;
     margin: 0 auto; 
@@ -49,7 +62,6 @@ const BotonLink = styled(Link)`
     color: #fff;
     font-weight: bold;
     text-transform: uppercase;
-    text-align: center;
     outline: none;
     border-style: none;
     padding: 10px 15px ;
@@ -68,24 +80,3 @@ const BotonLink = styled(Link)`
     }
     
 `
-
-const Item = ({producto}) => {
-    const {imagen, nombre, precio, id} = producto
-  return (
-    <Card>
-        <Imagen 
-            src={imagen} 
-            alt='Imagen producto'
-        />
-        <Parrafo>Producto: {nombre}</Parrafo>
-        <Parrafo>Precio:<Span>$ {precio}</Span></Parrafo>
-        <BotonLink
-            to={`producto/${id}`}            
-        >
-            Detalle del producto
-        </BotonLink>
-    </Card>
-  )
-}
-
-export default Item

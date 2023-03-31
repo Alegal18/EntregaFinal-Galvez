@@ -1,10 +1,7 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import CartWidget from "./CartWidget";
 
-
-const Container = styled.div`
+export const Container = styled.div`
     width: 100%;
     height: 100px;
 
@@ -13,7 +10,7 @@ const Container = styled.div`
     }   
 `
 
-const Lista = styled.ul`
+export const Lista = styled.ul`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,7 +26,7 @@ const Lista = styled.ul`
     }   
 
 `
-const Header = styled.h1`
+export const Header = styled.h1`
     color: #fff;
     font-size: 3.5rem;
     margin-left:0;
@@ -39,7 +36,7 @@ const Header = styled.h1`
       font-size: 2rem;
     }   
 `
-const Enlace = styled(NavLink)`
+export const Enlace = styled(NavLink)`
     color: white;
     text-decoration: none;        
     
@@ -47,29 +44,3 @@ const Enlace = styled(NavLink)`
       gap: 1rem;
     }   
 `
-
-const NavBar = () => {
-
-    return(
-        <Container>
-
-            <nav>
-                
-                <Lista>
-
-                    <Header>Moto Store</Header>
-                    <Enlace to="/">Inicio</Enlace>
-                    <Enlace to="/producto">Producto</Enlace>
-                    <Enlace to="/categoria">Categoria</Enlace>
-                    <CartWidget />
-
-                </Lista>                
-            </nav>
-           
-        </Container>
-
-
-    );
-}
-
-export default NavBar
