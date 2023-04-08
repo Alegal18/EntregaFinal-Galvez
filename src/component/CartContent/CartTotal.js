@@ -53,14 +53,14 @@ const CartTotal = () => {
 
     const total = cart.reduce((acc, el) => acc + (el.precio * el.cantidad), 0);
 
-      function handleCheckOut(userData) {
+      async function handleCheckOut(userData) {
         const orderData = {
             buyer: userData,
             items: cart,
             total: total,
             timestamp: new Date()
         }
-        createOrder(orderData)
+        await createOrder(orderData)
 
         setTimeout(()=>{
             Swal.fire({
@@ -77,21 +77,8 @@ const CartTotal = () => {
     <>
     {total > 0? (
         <Div>                      
-            
-            <h3>Total a Pagar:<span>$ {total}</span></h3>  
-            <Formulario onSubmit={handleCheckOut} />          
-            {/* <EnlacePago
-                // onClick={()=> handleCheckOut()}                
-                // to='/'
-            >  Crear Orden
-            </EnlacePago>              */}
-                           
-            {/* <Enlace
-                to='/'
-                onClick={() => setCart([])}
-            >  Vaciar Carrito
-            </Enlace>        */}
-                      
+            <Formulario onSubmit={handleCheckOut} />
+            <h3>Total a Pagar:<span>$ {total}</span></h3>                   
         </Div>
     ) : (
         <Div>

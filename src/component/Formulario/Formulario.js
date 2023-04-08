@@ -87,7 +87,8 @@ const Formulario = (props) => {
     })   
     
         
-    function handleUserData(e) {               
+    function handleUserData(e) { 
+                      
         const value = e.target.value;
         const input = e.target.name;
 
@@ -156,7 +157,9 @@ const Formulario = (props) => {
             <EnlacePago
                 disabled={!(userData.name !== '' && userData.telefono !== '' && userData.email !== '' && userData.mensaje !== '')}
                 type='submit'
-                onClick={() => props.onSubmit(userData)}
+                onClick={(e) => {
+                    e.preventDefault()
+                    props.onSubmit(userData)}}
                 
                 >Crear Orden
             </EnlacePago>
